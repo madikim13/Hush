@@ -10,7 +10,7 @@ public class TextInputController : MonoBehaviour
     void Start()
     {
         inputField.onSubmit.AddListener(HandleInput);
-        inputField.ActivateInputField(); // This makes the input auto-focused at start
+        inputField.ActivateInputField(); // 👈 This makes the input auto-focused at start
     }
 
     void HandleInput(string input)
@@ -23,6 +23,6 @@ public class TextInputController : MonoBehaviour
         }
 
         inputField.text = ""; // clear input
-        inputField.ActivateInputField(); // keeps it active after submitting
+        inputField.ActivateInputField(); // 👈 keeps it active after submitting
     }
 }

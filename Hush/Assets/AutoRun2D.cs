@@ -10,21 +10,36 @@ public class AutoRun2D : MonoBehaviour
 
     private Rigidbody2D rb;
     private bool isGrounded;
-    // private bool isSlowingDown = false;
     private float originalSpeed;
 
     public Transform groundCheck;
     public float groundCheckRadius = 0.1f;
     public LayerMask groundLayer;
 
+    // 🌟 Sprites
+    public Sprite idleSprite;
+    public Sprite jumpSprite;
+    private SpriteRenderer spriteRenderer;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>(); // make sure your character has this
     }
 
     void Update()
     {
-        // Jump on key press
+        // Sprite switching
+        if (!isGrounded)
+        {
+            spriteRenderer.sprite = jumpSprite;
+        }
+        else
+        {
+            spriteRenderer.sprite = idleSprite;
+        }
+
+        // Optional jump input (if you enable jumping later)
         // if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         // {
         //     rb.velocity = new Vector2(rb.velocity.x, jumpForce);
@@ -33,10 +48,7 @@ public class AutoRun2D : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Constantly move to the right
         rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
-
-        // Ground check
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
     }
 
@@ -45,8 +57,7 @@ public class AutoRun2D : MonoBehaviour
         if (other.CompareTag("SlowZone"))
         {
             originalSpeed = moveSpeed;
-            moveSpeed = moveSpeed * 0.2f; // Slow down to 20%
-            // isSlowingDown = true;
+            moveSpeed = moveSpeed * 0.2f;
         }
     }
 
@@ -55,30 +66,8 @@ public class AutoRun2D : MonoBehaviour
         if (other.CompareTag("SlowZone"))
         {
             moveSpeed = originalSpeed;
-            // if (isSlowingDown)
-            // {
-            //     StartCoroutine(RestoreSpeed()); // Start coroutine to restore speed
-            // }
         }
     }
-
-    // private IEnumerator RestoreSpeed()
-    // {
-    //     float timeToRestore = 0.5f; // Adjust this value for speed of restoration
-    //     float elapsedTime = 0f;
-
-    //     float currentSpeed = moveSpeed;
-
-    //     while (elapsedTime < timeToRestore)
-    //     {
-    //         moveSpeed = Mathf.Lerp(currentSpeed, originalSpeed, (elapsedTime / timeToRestore));
-    //         elapsedTime += Time.deltaTime;
-    //         yield return null; // Wait until next frame
-    //     }
-
-    //     moveSpeed = originalSpeed; // Ensure it reaches the exact original speed
-    //     isSlowingDown = false;
-    // }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
