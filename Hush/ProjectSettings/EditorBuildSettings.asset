@@ -7,16 +7,40 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/TitleScene.unity
+    guid: 246292d2505784e4b86ad0c2e8f39481
+  - enabled: 1
+    path: Assets/Scenes/Tutorial00.unity
     guid: 25979c2ac050b4c498eea3d0c0fc1221
+  - enabled: 1
+    path: Assets/Scenes/Tutorial01.unity
+    guid: 643b2ca803c9849fb908448c5c6f4845
+  - enabled: 1
+    path: Assets/Scenes/Tutorial02.unity
+    guid: 0ab5fb0efd02341259f4e71376f54a95
+  - enabled: 1
+    path: Assets/Scenes/Tutorial03.unity
+    guid: 84ff75ea53418464c963d3d982f81c8f
+  - enabled: 1
+    path: Assets/Scenes/Tutorial04.unity
+    guid: ae14e909507634628a0487203083e109
+  - enabled: 1
+    path: Assets/Scenes/Tutorial05.unity
+    guid: 85cb510fa6c764029943c53dcb77c673
+  - enabled: 1
+    path: Assets/Scenes/Tutorial06.unity
+    guid: 407c157daaab14e5c8fcc374e2db5406
+  - enabled: 1
+    path: Assets/Scenes/Tutorial07.unity
+    guid: 93cebdefee12a4460ad620e0256d2981
+  - enabled: 1
+    path: Assets/Scenes/Tutorial08.unity
+    guid: a323d24fa1a254ee6958ece3dbdeeb09
+  - enabled: 1
+    path: Assets/Scenes/Tutorial09.unity
+    guid: 558887e65e36f4d339f4d115a3394018
   - enabled: 1
     path: Assets/Scenes/GameplayScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
-    path: Assets/Scenes/HpDownScene.unity
-    guid: 81bc545fe189e4af799d32485155acd5
-  - enabled: 1
-    path: Assets/Scenes/SaveScene.unity
-    guid: a9851e08ea7df4d7dae402e354c54ffb
   - enabled: 1
     path: Assets/Scenes/MenuScene.unity
     guid: 582ebb83b97e24ab3a7836eaeea3caae
